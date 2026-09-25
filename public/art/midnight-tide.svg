@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Midnight Tide">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#07121f"/>
+      <stop offset="55%" stop-color="#12324a"/>
+      <stop offset="100%" stop-color="#1c4d5e"/>
+    </linearGradient>
+    <linearGradient id="foam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8fd4d2" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#e8f4f2" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#8fd4d2" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#sky)"/>
+  <circle cx="620" cy="180" r="54" fill="#f2e6c4" opacity="0.85"/>
+  <circle cx="620" cy="180" r="90" fill="#f2e6c4" opacity="0.08"/>
+  <path d="M0 620 C120 560 220 700 360 640 C500 580 560 720 800 630 L800 1000 L0 1000 Z" fill="#0b2433"/>
+  <path d="M0 700 C180 650 260 780 420 710 C580 640 640 790 800 720 L800 1000 L0 1000 Z" fill="#0e3144"/>
+  <path d="M0 790 C140 750 300 860 460 800 C620 740 700 870 800 810 L800 1000 L0 1000 Z" fill="#154556"/>
+  <path d="M0 640 C160 610 280 690 420 650 C560 610 680 690 800 655" fill="none" stroke="url(#foam)" stroke-width="10"/>
+  <path d="M0 760 C200 730 340 820 500 770 C660 720 720 820 800 780" fill="none" stroke="#d7ecea" stroke-opacity="0.25" stroke-width="4"/>
+</svg>

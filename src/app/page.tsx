@@ -1,69 +1,87 @@
-import Image from "next/image";
+import Link from "next/link";
+import { RsvpForm } from "@/components/RsvpForm";
+import { ART_PIECES } from "@/data/art";
+import { getEventDate, getEventName, getEventVenue } from "@/lib/config";
 
-export default function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ error?: string }>;
+}) {
+  const params = await searchParams;
+  const eventName = getEventName();
+  const preview = ART_PIECES.slice(0, 3);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div>
+      <section className="mx-auto grid max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+        <div>
+          <p className="text-sm uppercase tracking-[0.2em] text-[var(--accent)]">
+            Live evening
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <h1 className="mt-4 font-serif text-5xl leading-tight text-[var(--ink)] sm:text-6xl">
+            {eventName}
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-8 text-[var(--muted)]">
+            A small hanging of six works. Register for the live event, walk the
+            room, and reserve a piece before it leaves the wall.
+          </p>
+          <dl className="mt-8 space-y-2 text-sm text-[var(--ink)]">
+            <div className="flex gap-3">
+              <dt className="w-16 text-[var(--muted)]">When</dt>
+              <dd>{getEventDate()}</dd>
+            </div>
+            <div className="flex gap-3">
+              <dt className="w-16 text-[var(--muted)]">Where</dt>
+              <dd>{getEventVenue()}</dd>
+            </div>
+          </dl>
+          <Link
+            href="/gallery"
+            className="mt-8 inline-block text-sm text-[var(--accent)] hover:underline"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Browse the hanging
+          </Link>
         </div>
-      </main>
+        <div
+          id="rsvp"
+          className="rounded-xl border border-[var(--line)] bg-[var(--bg-raised)] p-6"
+        >
+          <h2 className="font-serif text-2xl">Reserve a seat</h2>
+          <p className="mt-2 mb-6 text-sm text-[var(--muted)]">
+            Doors at 7. Seating is limited.
+          </p>
+          <RsvpForm error={params.error} />
+        </div>
+      </section>
+      <section className="border-t border-[var(--line)]">
+        <div className="mx-auto max-w-6xl px-6 py-14">
+          <div className="flex items-end justify-between gap-4">
+            <h2 className="font-serif text-3xl">On the wall tonight</h2>
+            <Link href="/gallery" className="text-sm text-[var(--muted)] hover:text-[var(--ink)]">
+              See all six
+            </Link>
+          </div>
+          <ul className="mt-8 grid gap-6 sm:grid-cols-3">
+            {preview.map((piece) => (
+              <li key={piece.id}>
+                <Link href={`/gallery/${piece.id}`} className="group block">
+                  <div className="overflow-hidden rounded-lg border border-[var(--line)] bg-[var(--bg-raised)]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={piece.image}
+                      alt={piece.title}
+                      className="aspect-[4/5] w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                  <p className="mt-3 font-serif text-lg">{piece.title}</p>
+                  <p className="text-sm text-[var(--muted)]">{piece.artist}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     </div>
   );
 }

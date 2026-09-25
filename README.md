@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Atelier Night
 
-## Getting Started
+A small Next.js art-show site for a Cloudways Velocity hackathon demo.
 
-First, run the development server:
+Visitors can RSVP for a live evening, browse six works, and reserve a piece. Checkout is mocked on purpose so the talk stays on Velocity: Git deploy, auto-redeploy, environment variables, and rollback.
+
+## Local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Production start (what Velocity runs after a build):
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+`next start` listens on `0.0.0.0` and honors `PORT`.
 
-To learn more about Next.js, take a look at the following resources:
+## Environment variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Set these in Cloudways Velocity (App Settings, Environment Variables). The app reads them at request time.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Name | Fallback | Where it shows |
+| --- | --- | --- |
+| `EVENT_NAME` | `Atelier Night` | Header, hero, footer strip |
+| `EVENT_DATE` | `October 12, 2026` | Home and thanks pages |
+| `EVENT_VENUE` | `Studio 4, live and in person` | Home |
 
-## Deploy on Vercel
+The footer also prints `APP_VERSION` from code (`src/lib/config.ts`), the Node version, and process start time so a redeploy or rollback is visible without opening logs.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Demo notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+RSVPs and reservations write to `data/store.json` on the running process. A fresh deploy may reset that file. That is expected for the live talk.
+
+See [DEMO.md](DEMO.md) for the console click path.
