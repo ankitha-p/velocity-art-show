@@ -47,9 +47,10 @@ export default async function PiecePage({
       </div>
       <div>
         <p className="text-sm text-[var(--muted)]">
-          {piece.artist} · {piece.year}
+          {piece.tradition} · {piece.year}
         </p>
         <h1 className="mt-2 font-serif text-4xl">{piece.title}</h1>
+        <p className="mt-1 text-sm text-[var(--muted)]">{piece.artist}</p>
         <p className="mt-4 text-lg">{formatPrice(piece.price)}</p>
         <p className="mt-2 text-sm text-[var(--muted)]">{piece.medium}</p>
         <p className="mt-6 leading-7 text-[var(--muted)]">{piece.blurb}</p>

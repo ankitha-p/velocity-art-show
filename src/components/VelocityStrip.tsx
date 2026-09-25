@@ -1,6 +1,8 @@
 import {
   APP_VERSION,
+  getEventDate,
   getEventName,
+  getEventVenue,
   getProcessStartedAt,
 } from "@/lib/config";
 
@@ -24,6 +26,14 @@ export function VelocityStrip() {
           <div>
             <dt className="sr-only">Event</dt>
             <dd>{getEventName()}</dd>
+          </div>
+          <div>
+            <dt className="sr-only">Date</dt>
+            <dd>{getEventDate()}</dd>
+          </div>
+          <div>
+            <dt className="sr-only">Venue</dt>
+            <dd>{getEventVenue()}</dd>
           </div>
           <div>
             <dt className="sr-only">Node</dt>

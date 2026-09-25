@@ -18,20 +18,23 @@ Talking point: Git is the source of truth. No SSH, no PM2, no Nginx config.
 
 On your laptop, make a visual v2 change and push `main`:
 
-1. In `src/lib/config.ts`, set `APP_VERSION` to `v2.0.0` and `THEME_COLOR` to `#2563eb` (or any other color).
+1. In `src/lib/config.ts`, set `APP_VERSION` to `v2.0.0` and `THEME_COLOR` to `#0f766e` (peacock green).
 2. Optional: add a seventh piece in `src/data/art.ts` and a matching file under `public/art/`.
 3. Commit and push.
 
 Stay on the live URL. When the deploy finishes, reload. The footer badge, accent color, and (if you added one) new work should change without touching the Velocity dashboard.
 
-## 3. Environment variables
+## 3. Environment variables (the live audience beat)
+
+Stay on the home page so When and Where are on screen. Then change config only, no code push.
 
 1. Velocity, App Settings, Environment Variables.
-2. Add `EVENT_NAME` = `Harbor Lights`.
-3. Optional: `EVENT_DATE` = `November 2, 2026`.
-4. Save and redeploy.
+2. Set `EVENT_DATE` = `8 December 2026`.
+3. Set `EVENT_VENUE` = `Jawahar Kala Kendra, Jaipur`.
+4. Optional: keep `EVENT_NAME` as `The Great Indian Art Show`, or rename it live.
+5. Save and redeploy.
 
-Reload. The header, hero, and footer strip should show the new name.
+Reload. The When / Where cards, RSVP copy, thanks page, and footer strip should show the new date and venue. That is the env-var story: production config, not a new commit.
 
 ## 4. Rollback
 

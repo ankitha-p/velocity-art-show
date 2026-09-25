@@ -10,7 +10,7 @@ export function ReserveForm({ pieceId, reserved, error }: ReserveFormProps) {
   if (reserved) {
     return (
       <p className="rounded border border-[var(--line)] bg-[var(--bg-raised)] px-4 py-3 text-sm text-[var(--muted)]">
-        This piece is reserved for the night of the show.
+        This piece is reserved for the evening of the show.
       </p>
     );
   }

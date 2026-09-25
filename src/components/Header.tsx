@@ -7,7 +7,10 @@ export function Header() {
   return (
     <header className="border-b border-[var(--line)]">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-5">
-        <Link href="/" className="font-serif text-xl tracking-tight text-[var(--ink)]">
+        <Link
+          href="/"
+          className="font-serif text-lg leading-tight tracking-tight text-[var(--ink)] sm:text-xl"
+        >
           {eventName}
         </Link>
         <nav className="flex items-center gap-6 text-sm text-[var(--muted)]">

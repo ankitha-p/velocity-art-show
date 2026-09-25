@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #161310;
-  --bg-raised: #1e1914;
-  --ink: #f3ece2;
-  --muted: #b5a99a;
-  --line: #3a3229;
-  --accent: #c45c26;
+  --bg: #1c100e;
+  --bg-raised: #2a1814;
+  --ink: #f8efe2;
+  --muted: #c4b09a;
+  --line: #5a3a2a;
+  --accent: #e08a1e;
 }
 
 @theme inline {
   --color-background: var(--bg);
   --color-foreground: var(--ink);
   --font-sans: var(--font-outfit);
-  --font-serif: var(--font-playfair);
+  --font-serif: var(--font-cormorant);
 }
 
 body {
@@ -23,5 +23,5 @@ body {
 }
 
 .font-serif {
-  font-family: var(--font-playfair), ui-serif, Georgia, serif;
+  font-family: var(--font-cormorant), ui-serif, Georgia, serif;
 }

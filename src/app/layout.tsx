@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Playfair_Display } from "next/font/google";
+import { Cormorant_Garamond, Outfit } from "next/font/google";
 import { Header } from "@/components/Header";
 import { VelocityStrip } from "@/components/VelocityStrip";
 import { THEME_COLOR, getEventName } from "@/lib/config";
@@ -10,20 +10,21 @@ const outfit = Outfit({
   subsets: ["latin"],
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: {
-    default: "Atelier Night",
-    template: "%s · Atelier Night",
+    default: "The Great Indian Art Show",
+    template: "%s · The Great Indian Art Show",
   },
   description:
-    "Register for a live art evening, browse the hanging works, and reserve a piece.",
+    "A live hanging of six Indian traditions. Register, walk the room, and reserve a piece.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -32,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${playfair.variable} h-full antialiased`}
+      className={`${outfit.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body
         className="flex min-h-full flex-col"

@@ -14,9 +14,10 @@ export default async function GalleryPage() {
       <p className="text-sm uppercase tracking-[0.2em] text-[var(--accent)]">
         The hanging
       </p>
-      <h1 className="mt-3 font-serif text-4xl">Six works, one evening</h1>
+      <h1 className="mt-3 font-serif text-4xl">Six traditions, one evening</h1>
       <p className="mt-4 max-w-2xl text-[var(--muted)]">
-        Walk the room. Open a piece. Reserve it if it should go home with you.
+        Works from Bihar, Maharashtra, Rajasthan, Kerala, Madhya Pradesh, and
+        Odisha. Open a piece. Reserve it if it should go home with you.
       </p>
       <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {ART_PIECES.map((piece) => {
@@ -40,7 +41,7 @@ export default async function GalleryPage() {
                 <div className="mt-3 flex items-baseline justify-between gap-3">
                   <div>
                     <p className="font-serif text-xl">{piece.title}</p>
-                    <p className="text-sm text-[var(--muted)]">{piece.artist}</p>
+                    <p className="text-sm text-[var(--muted)]">{piece.tradition}</p>
                   </div>
                   <p className="text-sm">{formatPrice(piece.price)}</p>
                 </div>
