@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Velocity talk script · 15–20 min</title>
+    <style>
+      :root {
+        --bg: #14110e;
+        --card: #1f1a16;
+        --ink: #f4efe6;
+        --muted: #b6aa9a;
+        --line: #3c342c;
+        --say: #e08a1e;
+        --click: #7eb8a0;
+        --time: #c9a227;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font: 17px/1.5 "Segoe UI", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        padding: 16px 24px;
+        border-bottom: 1px solid var(--line);
+        background: #100e0c;
+      }
+      header h1 {
+        margin: 0 0 4px;
+        font-size: 1.25rem;
+      }
+      header p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      main {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0 0 24px;
+      }
+      .chip {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+      }
+      .chip.say {
+        color: var(--say);
+      }
+      .chip.click {
+        color: var(--click);
+      }
+      .chip.if {
+        color: var(--muted);
+      }
+      section {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 20px 22px;
+        margin-bottom: 16px;
+      }
+      section h2 {
+        margin: 0 0 8px;
+        font-size: 1.15rem;
+      }
+      .mins {
+        color: var(--time);
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .line {
+        margin: 10px 0;
+        padding-left: 12px;
+        border-left: 3px solid var(--line);
+      }
+      .line.say {
+        border-color: var(--say);
+      }
+      .line.click {
+        border-color: var(--click);
+      }
+      .line.if {
+        border-color: #6b6358;
+        color: var(--muted);
+      }
+      .tag {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-right: 8px;
+      }
+      .say .tag {
+        color: var(--say);
+      }
+      .click .tag {
+        color: var(--click);
+      }
+      code {
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+        font-size: 0.88em;
+        background: #100e0c;
+        padding: 1px 6px;
+        border-radius: 4px;
+      }
+      ul {
+        margin: 8px 0 0;
+        padding-left: 20px;
+        color: var(--muted);
+      }
+      footer {
+        color: var(--muted);
+        font-size: 0.9rem;
+        padding: 8px 0 40px;
+      }
+      @media print {
+        header {
+          position: static;
+        }
+        section {
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Cloudways Velocity · 15–20 minute script</h1>
+      <p>
+        Vehicle: The Great Indian Art Show · Repo:
+        <code>ankitha-p/velocity-art-show</code> · Branch: <code>main</code>
+      </p>
+    </header>
+    <main>
+      <div class="legend">
+        <span class="chip say">SAY · spoken line</span>
+        <span class="chip click">CLICK · what you do</span>
+        <span class="chip if">IF STUCK · backup</span>
+      </div>
+
+      <section>
+        <p class="mins">0:00–2:00 · open</p>
+        <h2>1. The problem Velocity solves</h2>
+        <p class="line say">
+          <span class="tag">Say</span>
+          Deploying Node usually means two bad options. A raw VPS: you install
+          Node, wire Nginx, run PM2, and own SSL. Or serverless: cold starts
+          and a bill that moves with traffic.
+        </p>
+        <p class="line say">
+          <span class="tag">Say</span>
+          Velocity is the third option. Connect a GitHub repo. The platform
+          builds, runs, and deploys on every push. Persistent server, flat
+          price, no SSH to ship.
+        </p>
+        <p class="line click">
+          <span class="tag">Click</span>
+          Cloudways console open on the Velocity app. GitHub tab ready on
+          <code>ankitha-p/velocity-art-show</code>. Live site in a third tab.
+        </p>
+      </section>
+
+      <section>
+        <p class="mins">2:00–5:00 · the app</p>
+        <h2>2. Show the product (the vehicle)</h2>
+        <p class="line say">
+          <span class="tag">Say</span>
+          This is The Great Indian Art Show. A Next.js app: RSVP for a live
+          hanging, six works from six traditions, mock reserve. The site is
+          not the product I am selling. Velocity is.
+        </p>
+        <p class="line click">
+          <span class="tag">Click</span>
+          Live URL. RSVP with a name. Open Gallery. Open one piece. Reserve
+          it. Point at the footer: version, event name, date, venue, Node
+          version, process start time.
+        </p>
+        <p class="line say">
+          <span class="tag">Say</span>
+          That footer is how you will see deploys and env changes without
+          opening logs.
+        </p>
+      </section>
+
+      <section>
+        <p class="mins">5:00–8:00 · first deploy story</p>
+        <h2>3. Git in, app out</h2>
+        <p class="line say">
+          <span class="tag">Say</span>
+          I created a Velocity application, connected GitHub, picked this
+          repo and <code>main</code>. Velocity read <code>package.json</code>,
+          saw Next.js, and set npm build and start. I did not write an Nginx
+          file. I did not install PM2.
+        </p>
+        <p class="line click">
+          <span class="tag">Click</span>
+          <strong>Deployment Management</strong>. Show repo, branch, last
+          successful deploy. Then <strong>Overview</strong> for the public
+          URL and that the process is running.
+        </p>
+        <p class="line say">
+          <span class="tag">Say</span>
+          npm installs and builds. PM2 keeps <code>next start</code> alive.
+          Nginx is the public door, including HTTPS. That stack is managed.
+        </p>
+      </section>
+
+      <section>
+        <p class="mins">8:00–12:00 · auto-deploy</p>
+        <h2>4. Push to main (the money shot)</h2>
+        <p class="line say">
+          <span class="tag">Say</span>
+          Watch the live site. I am going to change accent color and bump
+          the version in code, then push <code>main</code>. I will not touch
+          Velocity after this.
+        </p>
+        <p class="line click">
+          <span class="tag">Click</span>
+          In <code>src/lib/config.ts</code>:
+          <code>APP_VERSION = "v2.0.0"</code> and
+          <code>THEME_COLOR = "#0f766e"</code>. Commit, push
+          <code>main</code>. Stay on <strong>Deployment Management</strong>
+          until the new row finishes. Hard-refresh the live URL.
+        </p>
+        <p class="line say">
+          <span class="tag">Say</span>
+          Footer says v2. Buttons went peacock green. Git is the source of
+          truth. That is auto-deploy.
+        </p>
+        <p class="line if">
+          <span class="tag">If stuck</span>
+          Build still running: narrate the npm / PM2 / Nginx path. Still
+          stale: hard-refresh, then Cloudflare purge if you attached a
+          domain. Repo not watching: you are on the wrong GitHub workspace
+          (must be <code>ankitha-p</code>, not cloudways-lab).
+        </p>
+      </section>
+
+      <section>
+        <p class="mins">12:00–16:00 · env vars</p>
+        <h2>5. Change the event live, no commit</h2>
+        <p class="line say">
+          <span class="tag">Say</span>
+          Date and venue should not live in Git. They are environment
+          variables on the application, not on a single deploy.
+        </p>
+        <p class="line click">
+          <span class="tag">Click</span>
+          Leave the home page visible (When / Where cards).
+          <strong>Environment Variables</strong>:
+          <code>EVENT_DATE</code> = <code>8 December 2026</code>,
+          <code>EVENT_VENUE</code> = <code>Jawahar Kala Kendra, Jaipur</code>.
+          Optional: tweak <code>EVENT_NAME</code>. Save and
+          <strong>redeploy</strong>. Wait. Hard-refresh.
+        </p>
+        <p class="line say">
+          <span class="tag">Say</span>
+          Same code. New When and Where. Footer updated. Env vars need a
+          redeploy so the Node process restarts. They do not need a git
+          push. Rollback of code will not undo these values.
+        </p>
+      </section>
+
+      <section>
+        <p class="mins">16:00–18:00 · rollback</p>
+        <h2>6. Go back</h2>
+        <p class="line click">
+          <span class="tag">Click</span>
+          <strong>Deployment Management</strong>. Roll back to the v1
+          deploy. Refresh the live site.
+        </p>
+        <p class="line say">
+          <span class="tag">Say</span>
+          Version and theme go back because they live in code. Date and
+          venue stay Jaipur because env vars belong to the app. That
+          difference matters in production.
+        </p>
+      </section>
+
+      <section>
+        <p class="mins">18:00–20:00 · sidebar, then close</p>
+        <h2>7. What else is on the plan (do not demo all of it)</h2>
+        <ul>
+          <li>
+            <strong>Security:</strong> SSL on the default URL. HTTPS
+            redirect so http becomes https. Optional password gate for
+            staging, not for this public hanging. IP allow/block for SSH
+            or site traffic. WAF, malware, and DDoS are on the Velocity
+            plan (Cloudflare at the edge).
+          </li>
+          <li>
+            <strong>Domain / Cloudflare:</strong> map a real hostname later.
+            CDN and DDoS sit in front of Nginx.
+          </li>
+          <li>
+            <strong>Web Rules:</strong> redirects and headers in the UI. No
+            server file.
+          </li>
+          <li>
+            <strong>Backup:</strong> restore files and data. Different from
+            deploy rollback (code only).
+          </li>
+          <li>
+            <strong>Staging / Cron / Access:</strong> clone to test, schedule
+            jobs on a persistent process, SSH if you must. Git is still how
+            we ship.
+          </li>
+        </ul>
+        <p class="line say">
+          <span class="tag">Say</span>
+          Close: I shipped a real Next.js app from GitHub, updated it with
+          a push, changed production config without a commit, and rolled
+          back. I did not hire a sysadmin for Nginx, PM2, or SSL. That is
+          Cloudways Velocity.
+        </p>
+      </section>
+
+      <section>
+        <p class="mins">Pocket lines</p>
+        <h2>If someone asks</h2>
+        <p class="line say">
+          <span class="tag">Say</span>
+          Workspace: that is the GitHub account the app may read. Pick
+          <code>ankitha-p</code>, not cloudways-lab, or this repo will not
+          appear.
+        </p>
+        <p class="line say">
+          <span class="tag">Say</span>
+          Branch: you choose it. We chose <code>main</code>. Auto-deploy
+          watches only that branch.
+        </p>
+        <p class="line say">
+          <span class="tag">Say</span>
+          RSVP data may reset after a deploy. That is a JSON file on disk
+          for the demo, not a Velocity failure.
+        </p>
+      </section>
+
+      <footer>
+        Open this file in a browser. Print if you want paper. Keep SAY
+        lines short. If a deploy is slow, talk security. Do not wait in
+        silence.
+      </footer>
+    </main>
+  </body>
+</html>

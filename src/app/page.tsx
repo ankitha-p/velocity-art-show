@@ -52,7 +52,7 @@ export default async function Home({
           id="rsvp"
           className="rounded-xl border border-[var(--line)] bg-[var(--bg-raised)] p-6"
         >
-          <h2 className="font-serif text-2xl">Reserve a seat</h2>
+          <h2 className="font-serif text-2xl">Reserve your seat</h2>
           <p className="mt-2 mb-6 text-sm text-[var(--muted)]">
             {getEventDate()} · {getEventVenue()}. Seating is limited.
           </p>
